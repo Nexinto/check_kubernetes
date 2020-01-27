@@ -171,7 +171,7 @@ func checkReplicaSet(namespace, name string, kube kubernetes.Interface) (nrpe.Re
 
 func checkDeployment(namespace, name string, kube kubernetes.Interface) (nrpe.Result, string) {
 
-	dep, err := kube.AppsV1beta2().Deployments(namespace).Get(name, metav1.GetOptions{})
+	dep, err := kube.AppsV1().Deployments(namespace).Get(name, metav1.GetOptions{})
 
 	if result, message := handleLookupError(err); result != nrpe.OK {
 		return result, message

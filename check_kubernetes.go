@@ -268,11 +268,6 @@ func checkNode(name string, kube kubernetes.Interface) (nrpe.Result, string) {
 			if cond.Status == corev1.ConditionTrue {
 				ready = true
 			}
-		// case corev1.NodeOutOfDisk:
-		// 	if cond.Status == corev1.ConditionTrue {
-		// 		resourceTrouble = true
-		// 		resourceTroubleMsg = resourceTroubleMsg + "out of disk "
-		// 	}
 		case corev1.NodeDiskPressure:
 			if cond.Status == corev1.ConditionTrue {
 				resourceTrouble = true
